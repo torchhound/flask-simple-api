@@ -17,7 +17,7 @@ class departments(Resource):
 class departmentSalary(Resource):
     def get(self, departmentName):
         conn = db.connect()
-        query = conn.execut("select * from salaries where Department = '{}'".format(departmentName.upper())
+        query = conn.execute("select * from salaries where Department = '{}'".format(departmentName.upper()))
         result = {"data": [dict(zip(tuple (query.keys()), i)) for i in query.cursor]}
         return result
 
